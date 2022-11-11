@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-outline-secondary" href="{% url 'permissions_list' %}">
+    Permissions Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>allow_all</td><td>{{ object.allow_all }}</td></tr>
+    <tr><td>regex</td><td>{{ object.regex }}</td></tr>
+    <tr><td>library</td><td>{{ object.library }}</td></tr>
+    <tr><td>resource</td><td>{{ object.resource }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

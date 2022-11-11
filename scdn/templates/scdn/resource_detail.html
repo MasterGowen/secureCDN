@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-outline-secondary" href="{% url 'resource_list' %}">
+    Resource Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>version</td><td>{{ object.version }}</td></tr>
+    <tr><td>title</td><td>{{ object.title }}</td></tr>
+    <tr><td>file</td><td>{{ object.file }}</td></tr>
+    <tr><td>library</td><td>{{ object.library }}</td></tr>
+    <tr><td>parent</td><td>{{ object.parent }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

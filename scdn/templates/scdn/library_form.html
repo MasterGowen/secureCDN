@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+{% block content %}
+
+    <p>
+        <a class="btn btn-outline-secondary" href="{% url 'library_list' %}">
+            Library Listing
+        </a>
+    </p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form|crispy }}
+
+        <input type="submit" value="Save" class="btn btn-primary">
+    </form>
+
+{% endblock %}

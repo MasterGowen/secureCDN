@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <p>
+        <a class="btn btn-outline-secondary" href="{% url 'library_list' %}">
+            Library Listing
+        </a>
+    </p>
+
+    <table class="table">
+        <tr>
+            <td>title</td>
+            <td>{{ object.title }}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{{ object.description }}</td>
+        </tr>
+        <tr>
+            <td>resources</td>
+            <td>
+                {% if object.resources|length > 0 %}
+                    <ul>
+                        {% for resource in object.resources %}
+                            <li>{{ resource }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-danger">No resources</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <a class="btn btn-primary" href="{{ object.get_update_url }}">Edit</a>
+
+{% endblock %}

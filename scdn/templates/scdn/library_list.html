@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="mb-3"><a class="btn btn-primary" href="{% url 'library_create' %}">Create a new Library</a></div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for object in object_list %}
+            <div class="col">
+                <div class="card border-dark mb-3">
+                    <div class="card-header">Library</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ object.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ object.description }}</h6>
+                        <div class="card-text">
+                        {% if object.resources|length > 0 %}
+                            <p class="text-muted">TODO: display resources</p>
+                        {% else %}
+                        <p class="text-danger">No resources</p>
+                        {% endif %}
+                        </div>
+                        <a href="{{ object.get_absolute_url }}" class="card-link">{{ object }}</a>
+                        <a href="{% url 'library_delete' object.pk %}" class="card-link">(Delete)</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
