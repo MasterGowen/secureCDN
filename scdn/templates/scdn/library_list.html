@@ -10,7 +10,7 @@
                         <h5 class="card-title">{{ object.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ object.description }}</h6>
                         <div class="card-text">
-                        {% if object.resources|length > 0 %}
+                        {% if object.resources.all|length > 0 %}
                             <p class="text-muted">TODO: display resources</p>
                         {% else %}
                         <p class="text-danger">No resources</p>

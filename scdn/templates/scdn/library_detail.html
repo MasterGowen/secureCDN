@@ -20,10 +20,10 @@
         <tr>
             <td>resources</td>
             <td>
-                {% if object.resources|length > 0 %}
+                {% if object.resources.all|length > 0 %}
                     <ul>
-                        {% for resource in object.resources %}
-                            <li>{{ resource }}</li>
+                        {% for resource in object.resources.all %}
+                            <li><a target="_blank" href="{{ settings.CDN_BASE_URL }}{{ resource.file.url }}">{{ settings.CDN_BASE_URL }}{{ resource.file.url }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}
