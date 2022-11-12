@@ -81,7 +81,6 @@ def create_resource(**kwargs):
 
 def create_permissions(**kwargs):
     defaults = {}
-    defaults["allow_all"] = ""
     defaults["regex"] = ""
     if "library" not in kwargs:
         defaults["library"] = create_library()

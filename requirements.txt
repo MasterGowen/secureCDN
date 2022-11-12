@@ -3,4 +3,6 @@ django-extensions
 django-versionfield
 django-crispy-forms
 crispy-bootstrap5
+django-nested-inline
+django-sekizai
 django-debug-toolbar

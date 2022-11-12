@@ -38,7 +38,6 @@ class PermissionsForm(forms.ModelForm):
     class Meta:
         model = models.Permissions
         fields = [
-            "allow_all",
             "regex",
             "library",
             "resource",

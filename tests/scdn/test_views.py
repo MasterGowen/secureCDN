@@ -110,7 +110,6 @@ def tests_Permissions_create_view(client):
     resource = test_helpers.create_resource()
     url = reverse("permissions_create")
     data = {
-        "allow_all": true,
         "regex": "text",
         "library": library.pk,
         "resource": resource.pk,
@@ -133,7 +132,6 @@ def tests_Permissions_update_view(client):
     instance = test_helpers.create_permissions()
     url = reverse("permissions_update", args=[instance.pk, ])
     data = {
-        "allow_all": true,
         "regex": "text",
         "library": library.pk,
         "resource": resource.pk,

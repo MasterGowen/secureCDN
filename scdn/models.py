@@ -6,6 +6,8 @@ from versionfield import VersionField
 class Library(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(default="", blank=True)
+    version = VersionField()
+    parent = models.ForeignKey("self", blank=True, null=True, on_delete=models.SET_NULL)
 
     class Meta:
         verbose_name = 'library'
@@ -51,7 +53,6 @@ class Permissions(models.Model):
     resource = models.ForeignKey("scdn.Resource", on_delete=models.CASCADE)
 
     # Fields
-    allow_all = models.BooleanField(default=False)
     regex = models.CharField(max_length=64)
 
     class Meta:
